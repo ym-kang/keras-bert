@@ -81,7 +81,9 @@ r1 = m2.predict([a[0][0], a[0][2]])
 import numpy as np 
 
 input_txt = list(map(lambda x:inv_map[x],a[0][0][0]))
+print("input: ")
 print(input_txt)
 
 prediction_txt = list(map(lambda x:inv_map[x[0]],a[1][0][0]))
+print("prediction: ")
 print(prediction_txt)
