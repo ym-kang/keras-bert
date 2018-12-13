@@ -44,7 +44,7 @@ def _generator():
 
 model.fit_generator(
     generator=_generator(),
-    steps_per_epoch=100,
+    steps_per_epoch=200,
     epochs=3,
     validation_data=_generator(),
     validation_steps=100,
@@ -75,14 +75,13 @@ m2.compile(
 )
 a = next(_generator())
 r1 = m2.predict([a[0][0], a[0][2]])
-r2 = model.predict(a[0])
 
-rrrr = list(map(lambda x:inv_map[x],a[0][0][0]))
-rrrr
 
-r3 = np.argmax(r2[0][0],axis=0)
-rrrr3 = list(map(lambda x:inv_map[x],r3))
-rrrr3
 
-rrrr4 = list(map(lambda x:inv_map[x[0]],a[1][0][0]))
-rrrr4
+import numpy as np 
+
+input_txt = list(map(lambda x:inv_map[x],a[0][0][0]))
+print(input_txt)
+
+prediction_txt = list(map(lambda x:inv_map[x[0]],a[1][0][0]))
+print(prediction_txt)
