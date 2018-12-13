@@ -1,6 +1,7 @@
 import sys
 import codecs
 import numpy as np
+sys.path.append("../../")
 from keras_bert import load_trained_model_from_checkpoint
 
 

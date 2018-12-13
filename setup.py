@@ -9,7 +9,7 @@ setup(
     author='CyberZHG',
     author_email='CyberZHG@gmail.com',
     description='BERT implemented in Keras',
-    long_description=open('README.rst', 'r').read(),
+    #long_description=open('README.rst', 'r').read(),
     install_requires=[
         'numpy',
         'keras',
