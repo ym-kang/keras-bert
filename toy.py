@@ -28,6 +28,7 @@ model = get_model(
     seq_len=20,
     pos_num=20,
     dropout_rate=0.05,
+    lr = 1e-4
 )
 model.summary()
 
@@ -44,8 +45,8 @@ def _generator():
 
 model.fit_generator(
     generator=_generator(),
-    steps_per_epoch=200,
-    epochs=3,
+    steps_per_epoch=1000,
+    epochs=100,
     validation_data=_generator(),
     validation_steps=100,
     callbacks=[
@@ -74,16 +75,22 @@ m2.compile(
     metrics={},
 )
 a = next(_generator())
-r1 = m2.predict([a[0][0], a[0][2]])
+model_output = m2.predict([a[0][0], a[0][1]])
 
 
 
 import numpy as np 
 
+output = np.argmax(model_output[0],axis=0)
+output = list(map(lambda x:inv_map[x],output))
+
+
 input_txt = list(map(lambda x:inv_map[x],a[0][0][0]))
 print("input: ")
 print(input_txt)
 
-prediction_txt = list(map(lambda x:inv_map[x[0]],a[1][0][0]))
-print("prediction: ")
-print(prediction_txt)
+ground_truth_txt = list(map(lambda x:inv_map[x[0]],a[1][0][0]))
+print("ground_truth: ")
+print(ground_truth_txt)
+print("prediction(masked text): ")
+print(output)
