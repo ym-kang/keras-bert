@@ -1,5 +1,11 @@
 # Keras BERT
 
++ Added test code 2018 12/13
+  1. pip3 install keras-bert
+  2. python3 toy.py
+  ![Alt text](output1.JPG)
+
+
 [![Travis](https://travis-ci.org/CyberZHG/keras-bert.svg)](https://travis-ci.org/CyberZHG/keras-bert)
 [![Coverage](https://coveralls.io/repos/github/CyberZHG/keras-bert/badge.svg?branch=master)](https://coveralls.io/github/CyberZHG/keras-bert)
 
